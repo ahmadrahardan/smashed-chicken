@@ -1,6 +1,9 @@
 import sepadu from "../assets/certificates/Sertifikat HKI Sepadu.webp";
 import simba from "../assets/certificates/Sertifikat HKI SIMBA.webp";
 import bgChicken from "../assets/fried-chicken.jpg";
+import gofood from "../assets/logo.png";
+import grabfood from "../assets/logo.png";
+import shopeefood from "../assets/logo.png";
 
 const FindUsSection = () => {
   return (
@@ -70,44 +73,58 @@ const FindUsSection = () => {
             </h2>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+              {/* GOFOOD */}
               <a
                 href="#"
                 className="inline-flex items-center gap-3 rounded-xl bg-black px-5 py-3 text-white shadow-lg transition hover:scale-105"
               >
-                <svg
-                  className="h-7 w-7"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M16.365 12.94c.02 2.17 1.91 2.89 1.93 2.9-.02.05-.3 1.02-.98 2.02-.59.86-1.2 1.72-2.16 1.74-.95.02-1.26-.56-2.35-.56-1.1 0-1.44.54-2.33.58-.92.03-1.62-.92-2.22-1.77-1.22-1.76-2.15-4.97-.9-7.14.62-1.08 1.73-1.77 2.93-1.79.91-.02 1.77.61 2.35.61.57 0 1.65-.75 2.78-.64.47.02 1.79.19 2.63 1.42-.07.05-1.57.91-1.55 2.63ZM14.36 5.6c.49-.6.82-1.43.73-2.26-.7.03-1.54.47-2.04 1.06-.45.52-.84 1.36-.73 2.16.78.06 1.56-.4 2.04-.96Z" />
-                </svg>
+                <img
+                  src={gofood}
+                  alt="GoFood"
+                  className="h-7 w-7 object-contain"
+                />
                 <div className="text-left leading-tight">
                   <p className="text-[10px] uppercase tracking-wide text-white/70">
-                    Download on the
+                    Order via
                   </p>
-                  <p className="text-sm font-semibold sm:text-base">
-                    App Store
-                  </p>
+                  <p className="text-sm font-semibold sm:text-base">GoFood</p>
                 </div>
               </a>
 
+              {/* GRABFOOD */}
               <a
                 href="#"
                 className="inline-flex items-center gap-3 rounded-xl bg-black px-5 py-3 text-white shadow-lg transition hover:scale-105"
               >
-                <svg
-                  className="h-7 w-7"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M3 2.5v19l10.5-9.5L3 2.5Zm12.1 10.1 2.9-2.6-11.8-6.7 8.9 9.3Zm2.9 1.4-2.9-2.6-8.9 9.3 11.8-6.7ZM20 11.3l-2.6-1.5-1.6 1.5 1.6 1.5 2.6-1.5Z" />
-                </svg>
+                <img
+                  src={grabfood}
+                  alt="GrabFood"
+                  className="h-7 w-7 object-contain"
+                />
                 <div className="text-left leading-tight">
                   <p className="text-[10px] uppercase tracking-wide text-white/70">
-                    Get it on
+                    Order via
+                  </p>
+                  <p className="text-sm font-semibold sm:text-base">GrabFood</p>
+                </div>
+              </a>
+
+              {/* SHOPEEFOOD */}
+              <a
+                href="#"
+                className="inline-flex items-center gap-3 rounded-xl bg-black px-5 py-3 text-white shadow-lg transition hover:scale-105"
+              >
+                <img
+                  src={shopeefood}
+                  alt="ShopeeFood"
+                  className="h-7 w-7 object-contain"
+                />
+                <div className="text-left leading-tight">
+                  <p className="text-[10px] uppercase tracking-wide text-white/70">
+                    Order via
                   </p>
                   <p className="text-sm font-semibold sm:text-base">
-                    Google Play
+                    ShopeeFood
                   </p>
                 </div>
               </a>

@@ -1,5 +1,4 @@
 type Item = {
-  year: string;
   desc1: string;
   desc2: string;
   price?: string;
@@ -8,38 +7,33 @@ type Item = {
 
 const topCards: Item[] = [
   {
-    year: "EDUCATION",
-    desc1: "University of Jember",
+    desc1: "NUGGET GEPREK",
     desc2: "Bachelor of Information Systems",
-    price: "2023 - Present",
+    price: "10.000",
   },
   {
-    year: "EXPERIENCE",
-    desc1: "Media and Technology Division Staff",
+    desc1: "AYAM GEPREK ABANG",
     desc2: "Information Systems Student Association (HIMASIF)",
-    price: "Dec 2024 - Present",
+    price: "10.000",
     highlight: true,
   },
   {
-    year: "EXPERIENCE",
-    desc1: "Website Division Staff",
+    desc1: "SOSIS GEPREK",
     desc2: "Ilkom Developer League (IDLe) 2025",
-    price: "Aug 2025 - Oct 2025",
+    price: "10.000",
   },
 ];
 
 const bottomCards: Item[] = [
   {
-    year: "SPECIAL EXPERIENCE",
-    desc1: "Secretariat Division Staff",
+    desc1: "Paket Ayam Geprek + Es Teh",
     desc2: "IT-CONVERT & PICTURE 2025",
-    price: "Feb 2025 - Sep 2025",
+    price: "12.000",
   },
   {
-    year: "SPECIAL EXPERIENCE",
-    desc1: "Head of Publication, Decoration, and Documentation Committee",
+    desc1: "Paket Ayam Geprek + Add On Sosis/Nugget",
     desc2: "INHOFIS 2025 & Sarasehan 2025",
-    price: "Jul 2025 - Oct 2025",
+    price: "13.000",
   },
 ];
 
@@ -52,13 +46,6 @@ const SmallCard = ({ item }: { item: Item }) => {
     >
       <div className="flex items-center justify-between gap-4 p-5">
         <div className="max-w-[65%]">
-          <p
-            className={`text-sm font-extrabold uppercase leading-tight ${
-              item.highlight ? "text-white" : "text-[#222]"
-            }`}
-          >
-            {item.year}
-          </p>
 
           <h3
             className={`mt-1 text-xl font-extrabold leading-tight ${
@@ -90,7 +77,6 @@ const SmallCard = ({ item }: { item: Item }) => {
                 : "bg-white text-[#FF2E2E]"
             }`}
           >
-            {item.year.charAt(0)}
           </div>
         </div>
       </div>
@@ -103,10 +89,6 @@ const LargeCard = ({ item }: { item: Item }) => {
     <div className="relative overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-lg">
       <div className="flex flex-col justify-between gap-6 p-6 md:flex-row md:items-center">
         <div className="max-w-[65%]">
-          <p className="text-sm font-extrabold uppercase text-[#111]">
-            {item.year}
-          </p>
-
           <h3 className="mt-1 text-2xl font-extrabold leading-tight text-[#111]">
             {item.desc1}
           </h3>

@@ -54,7 +54,7 @@ const testimonials = [
   {
     id: 6,
     rating: 5.0,
-    text: "Ayam geprek di sini benar-benar juara! Crispy di luar, juicy di dalam, dan sambalnya pedasnya nendang banget. Setiap gigitan terasa nikmat dan bikin pengen nambah lagi. Cocok banget buat kamu yang cari makanan simpel tapi penuh rasa! 🔥🍗",
+    text: "Ayam geprek di sini benar-benar juara! Crispy di luar, juicy di dalam, dan sambalnya pedasnya nendang banget. Setiap gigitan terasa nikmat dan bikin pengen nambah lagi. Cocok banget buat kamu yang cari makanan simpel tapi penuh rasa!",
     name: "Lidya Permatasari",
     role: "Warga ",
     avatar: "https://i.pravatar.cc/100?img=32",
