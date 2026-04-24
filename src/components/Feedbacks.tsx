@@ -4,9 +4,9 @@ const testimonials = [
   {
     id: 1,
     rating: 5.0,
-    text: "I enjoy learning and building projects with a strong focus on clean design, responsive layouts, and functional user experience. Every project helps me grow both technically and creatively.",
-    name: "Ahmad Rahardan",
-    role: "Information Systems Student",
+    text: "Ayam gepreknya enak banget! Bagian luarnya crispy, tapi dalamnya tetap juicy dan lembut. Sambalnya pedasnya pas, nggak cuma pedas tapi juga ada rasa gurih yang bikin nagih. Porsinya cukup mengenyangkan, cocok banget buat makan siang atau malam.",
+    name: "Rahardan",
+    role: "Mahasiswa S2",
     avatar: "https://i.pravatar.cc/100?img=12",
     image:
       "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&auto=format&fit=crop",
@@ -14,29 +14,49 @@ const testimonials = [
   {
     id: 2,
     rating: 5.0,
-    text: "My journey in technology is driven by curiosity, consistency, and collaboration. I love exploring web development, solving problems, and turning ideas into meaningful digital experiences.",
-    name: "Ahmad Rahardan",
-    role: "Web Developer Enthusiast",
-    avatar: "https://i.pravatar.cc/100?img=32",
+    text: "Rasa ayam geprek di sini sangat memuaskan. Tekstur ayamnya renyah di luar dan tetap lembut di dalam. Sambalnya memiliki cita rasa pedas yang seimbang dengan sentuhan gurih yang khas. Ditambah dengan pelayanan yang cepat, pengalaman makan jadi lebih menyenangkan.",
+    name: "Felix Edna",
+    role: "Ketum HIMASIF",
+    avatar: "https://i.pravatar.cc/100?img=12",
     image:
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop",
   },
   {
     id: 3,
     rating: 5.0,
-    text: "My journey in technology is driven by curiosity, consistency, and collaboration. I love exploring web development, solving problems, and turning ideas into meaningful digital experiences.",
-    name: "Ahmad Rahardan",
-    role: "Web Developer Enthusiast",
-    avatar: "https://i.pravatar.cc/100?img=32",
+    text: "Ayamnya cukup enak dengan tekstur yang renyah, dan dagingnya juga tidak kering. Sambalnya pedas, tapi menurut saya rasanya masih bisa dibuat lebih seimbang karena sedikit terlalu asin. Secara keseluruhan tetap layak dicoba, apalagi untuk pecinta ayam geprek.",
+    name: "Ahmad Pratama",
+    role: "CEO Ayam Cumlaude",
+    avatar: "https://i.pravatar.cc/100?img=12",
     image:
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop",
   },
   {
     id: 4,
     rating: 5.0,
-    text: "My journey in technology is driven by curiosity, consistency, and collaboration. I love exploring web development, solving problems, and turning ideas into meaningful digital experiences.",
-    name: "Ahmad Rahardan",
-    role: "Web Developer Enthusiast",
+    text: "Ayam geprek di sini benar-benar juara! Crispy di luar, juicy di dalam, dan sambalnya pedasnya nendang banget. Setiap gigitan terasa nikmat dan bikin pengen nambah lagi. Cocok banget buat kamu yang cari makanan simpel tapi penuh rasa! 🔥🍗",
+    name: "Almas Teva",
+    role: "Pegawai SPPG (MBG)",
+    avatar: "https://i.pravatar.cc/100?img=32",
+    image:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    rating: 5.0,
+    text: "Ayam gepreknya wenak soro….ayamnya lembut…bumbunya meresap…dapet dagingnya banyak…gak kebanyakan tepung hehe….nasi nya pulen bikin makan tambah niqmat…yang paling juara sambal gepreknya…pedes gurih bawangnya berasa seger….",
+    name: "Amal Nurcahyono",
+    role: "Warga",
+    avatar: "https://i.pravatar.cc/100?img=12",
+    image:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    rating: 5.0,
+    text: "Ayam geprek di sini benar-benar juara! Crispy di luar, juicy di dalam, dan sambalnya pedasnya nendang banget. Setiap gigitan terasa nikmat dan bikin pengen nambah lagi. Cocok banget buat kamu yang cari makanan simpel tapi penuh rasa! 🔥🍗",
+    name: "Lidya Permatasari",
+    role: "Warga ",
     avatar: "https://i.pravatar.cc/100?img=32",
     image:
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop",
@@ -131,12 +151,12 @@ const FeedbacksSection: React.FC = () => {
       <div className="relative z-10 mx-auto w-full max-w-screen-xl px-5 md:px-10">
         {/* heading tetap */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl">
-            What Our Customers Say
+          <h2 className="text-3xl font-extrabold tracking-tight text-black sm:text-4xl md:text-5xl">
+            Ulasan dari Pelanggan Kami
           </h2>
 
           <p className="mt-3 text-sm leading-6 text-gray-500 sm:text-base">
-            Crispy delights will keep you coming back for more.
+            Kelezatan crispy yang membuat mereka ingin lagi dan lagi.
           </p>
         </div>
 
