@@ -2,7 +2,7 @@ import bgChicken from "../assets/fried-chicken.jpg";
 import gofood from "../assets/gofood.png";
 import grabfood from "../assets/grabfood.png";
 import shopeefood from "../assets/shopeefood.png";
-import phone from "../assets/phone.png";
+import phone from "../assets/iphone.png";
 
 const FindUsSection = () => {
   return (
@@ -26,43 +26,20 @@ const FindUsSection = () => {
         <div className="relative mx-auto grid h-full max-w-screen-xl grid-cols-1 items-center gap-8 px-6 md:px-10 lg:grid-cols-2 lg:px-14">
           {/* LEFT - PHONE MOCKUP KELUAR ATAS BAWAH */}
           <div className="relative hidden h-full items-center lg:flex">
-            {/* phone belakang */}
-            <div className="absolute left-[210px] top-1/2 z-10 h-[390px] w-[195px] -translate-y-1/2 rounded-[30px] border-[7px] border-[#222] bg-[#1A1A1A] p-2 shadow-2xl">
-              <div className="absolute left-1/2 top-3 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-black" />
-              <div className="h-full w-full overflow-hidden rounded-[22px] bg-white">
-                <img
-                  src={phone}
-                  alt="App Preview 2"
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-            </div>
-
-            {/* phone depan */}
-            <div className="absolute left-[60px] top-1/2 z-20 h-[480px] w-[240px] -translate-y-1/2 rounded-[36px] border-[8px] border-[#222] bg-[#1A1A1A] p-2 shadow-2xl">
-              <div className="absolute left-1/2 top-3 z-20 h-7 w-32 -translate-x-1/2 rounded-full bg-black" />
-              <div className="h-full w-full overflow-hidden rounded-[28px] bg-white">
-                <img
-                  src={phone}
-                  alt="App Preview 1"
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-            </div>
+            <img
+              src={phone}
+              alt="Instagram Mockup"
+              className="absolute left-[30px] top-1/2 z-20 h-[500px] w-auto -translate-y-1/2 object-contain"
+            />
           </div>
 
           {/* MOBILE PHONE MOCKUP */}
           <div className="relative flex h-full items-center justify-center lg:hidden">
-            <div className="absolute h-[390px] w-[200px] rounded-[34px] border-[7px] border-[#222] bg-[#1A1A1A] p-2 shadow-2xl">
-              <div className="absolute left-1/2 top-3 z-20 h-6 w-28 -translate-x-1/2 rounded-full bg-black" />
-              <div className="h-full w-full overflow-hidden rounded-[24px] bg-white">
-                <img
-                  src={phone}
-                  alt="App Preview 1"
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-            </div>
+            <img
+              src={phone}
+              alt="Instagram Mockup"
+              className="absolute top-1/2 h-[430px] w-auto -translate-y-1/2 object-contain"
+            />
           </div>
 
           {/* RIGHT - TEXT */}
