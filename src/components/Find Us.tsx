@@ -1,9 +1,8 @@
-import sepadu from "../assets/certificates/Sertifikat HKI Sepadu.webp";
-import simba from "../assets/certificates/Sertifikat HKI SIMBA.webp";
 import bgChicken from "../assets/fried-chicken.jpg";
 import gofood from "../assets/gofood.png";
 import grabfood from "../assets/grabfood.png";
 import shopeefood from "../assets/shopeefood.png";
+import phone from "../assets/phone.png";
 
 const FindUsSection = () => {
   return (
@@ -32,7 +31,7 @@ const FindUsSection = () => {
               <div className="absolute left-1/2 top-3 z-20 h-5 w-24 -translate-x-1/2 rounded-full bg-black" />
               <div className="h-full w-full overflow-hidden rounded-[22px] bg-white">
                 <img
-                  src={simba}
+                  src={phone}
                   alt="App Preview 2"
                   className="h-full w-full object-cover object-top"
                 />
@@ -44,7 +43,7 @@ const FindUsSection = () => {
               <div className="absolute left-1/2 top-3 z-20 h-7 w-32 -translate-x-1/2 rounded-full bg-black" />
               <div className="h-full w-full overflow-hidden rounded-[28px] bg-white">
                 <img
-                  src={sepadu}
+                  src={phone}
                   alt="App Preview 1"
                   className="h-full w-full object-cover object-top"
                 />
@@ -58,7 +57,7 @@ const FindUsSection = () => {
               <div className="absolute left-1/2 top-3 z-20 h-6 w-28 -translate-x-1/2 rounded-full bg-black" />
               <div className="h-full w-full overflow-hidden rounded-[24px] bg-white">
                 <img
-                  src={sepadu}
+                  src={phone}
                   alt="App Preview 1"
                   className="h-full w-full object-cover object-top"
                 />

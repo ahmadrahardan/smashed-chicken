@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import profilePhoto from "../assets/ayam.png";
 import bgChicken from "../assets/fried-chicken.jpg";
+import panah from "../assets/panah.png";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -173,8 +174,28 @@ const HomeSection = () => {
               <span className="text-4xl">10K</span>
               <span className="text-xs">rupiah</span>
             </div>
+
+            <img
+              src={panah}
+              alt="Ayam Crispy Sambal Bawang Pedas Gurih"
+              className="absolute right-[-1px] bottom-1 z-20 w-[180px] object-contain drop-shadow-xl sm:w-[140px] md:w-[200px] lg:w-[250px]"
+            />
           </div>
         </div>
+      </div>
+
+      {/* Kurva putih bawah */}
+      <div className="pointer-events-none absolute bottom-[-10px] left-0 z-20 w-full overflow-hidden leading-none">
+        <svg
+          viewBox="0 0 1440 180"
+          preserveAspectRatio="none"
+          className="block h-[90px] w-full md:h-[130px] lg:h-[150px]"
+        >
+          <path
+            d="M0,120 C220,40 480,40 720,110 C950,175 1220,170 1440,40 L1440,180 L0,180 Z"
+            fill="white"
+          />
+        </svg>
       </div>
     </section>
   );
