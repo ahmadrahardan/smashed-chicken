@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import fotoFormalku from "../assets/logo.png";
+import dot from "../assets/dot.png";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
@@ -48,18 +49,16 @@ const AboutSection = () => {
       id="aboutme"
       className="relative min-h-screen overflow-hidden bg-white flex items-center py-20"
     >
-      {/* Ornamen background */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-8 top-20 h-24 w-24 rounded-full bg-[#FDE7E9] blur-2xl opacity-70" />
-        <div className="absolute left-16 top-28 h-16 w-16 rounded-full border border-[#F8C9CF] opacity-60" />
-        <div className="absolute right-24 top-24 h-32 w-32 rounded-full bg-[#FDE7E9] blur-3xl opacity-50" />
-        <div className="absolute right-[42%] top-24 flex gap-3 opacity-60">
-          <span className="h-2 w-2 rounded-full bg-[#D62E37]" />
-          <span className="h-2 w-2 rounded-full bg-[#D62E37]" />
-          <span className="h-2 w-2 rounded-full bg-[#D62E37]" />
-          <span className="h-2 w-2 rounded-full bg-[#D62E37]" />
-        </div>
-      </div>
+      <img
+        src={dot}
+        alt=""
+        className="absolute left-1 top-6 h-64 w-64 object-contain opacity-80"
+      />
+      <img
+        src={dot}
+        alt=""
+        className="absolute right-1 bottom-6 h-64 w-64 object-contain opacity-80"
+      />
 
       <div className="relative z-10 mx-auto max-w-screen-xl px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
@@ -67,70 +66,38 @@ const AboutSection = () => {
           <div ref={photoRef} className="flex justify-center lg:justify-start">
             <div className="relative h-[320px] w-[320px] sm:h-[380px] sm:w-[380px] md:h-[430px] md:w-[430px]">
               {/* lingkaran accent belakang */}
-              <div className="absolute inset-0 rounded-full border-[14px] border-[#F8B7BF]" />
-              <div className="absolute -left-6 top-12 h-20 w-20 rounded-full bg-[#FDE7E9] opacity-80" />
-              <div className="absolute right-2 top-10 h-5 w-5 rounded-full bg-[#D62E37]" />
-              <div className="absolute right-[-10px] top-20 h-2.5 w-2.5 rounded-full bg-[#D62E37]" />
-              <div className="absolute right-8 top-28 h-3 w-3 rounded-full bg-[#D62E37]" />
+              <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_200deg,#ffffff_0deg,#ffffff_190deg,#f9a0aa_230deg,#fe2424_285deg,#f9a0aa_335deg,#ffffff_360deg)] p-[14px] opacity-80 rotate-[-150deg]">
+                <div className="h-full w-full rounded-full bg-white" />
+              </div>
 
-              {/* frame foto */}
-              <div className="absolute inset-[18px] overflow-hidden rounded-full border-[10px] border-white shadow-xl">
+              {/* logo */}
+              <div className="absolute inset-[14px] overflow-hidden rounded-full bg-white">
                 <img
                   src={fotoFormalku}
                   alt="About Me"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full rounded-full object-cover"
                 />
-              </div>
-
-              {/* dekorasi bawah */}
-              <div className="absolute bottom-3 left-0 rotate-[-8deg] rounded-md border border-[#F8C9CF] bg-white px-3 py-2 shadow-sm">
-                <div className="h-10 w-16 rounded bg-[#F7E7EA]" />
               </div>
             </div>
           </div>
 
           {/* KANAN - KONTEN */}
           <div ref={contentRef} className="text-center lg:text-left">
-            <h2 className="text-4xl font-extrabold leading-tight text-black sm:text-5xl md:text-6xl">
+            <h2 className="text-4xl font-bold leading-tight text-black sm:text-5xl md:text-6xl">
               Tentang Ayam Geprek Abang
             </h2>
 
             <p className="mt-6 max-w-2xl text-base leading-7 text-gray-500 sm:text-lg">
-              I am a highly motivated Information Systems student with a strong
-              interest in web development and digital technology. I enjoy
-              building responsive and user-friendly applications while improving
-              my skills in frontend, backend, and database management.
+              Ayam Geprek Abang merupakan usaha kuliner dengan produk yang
+              ditawarkan meliputi ayam geprek, sosis geprek, dan nugget geprek.
+              UMKM ini beroperasi setiap hari mulai pukul 08.00 hingga 16.00.
+              Harga yang ditawarkan relatif terjangkau, dengan rata-rata harga
+              per porsi sebesar Rp10.000. Dalam satu hari, jumlah penjualan
+              berkisar antara 45 hingga 60 porsi, yang menunjukkan adanya
+              permintaan yang cukup stabil. Lokasi usaha ini berada di Jl. Imam
+              Bonjol, Tegal Besar Kulon, Tegal Besar, Kecamatan Kaliwates,
+              Kabupaten Jember, Jawa Timur.
             </p>
-
-            <div className="mt-8 space-y-4">
-              <div className="flex items-start justify-center gap-3 lg:justify-start">
-                <span className="mt-1.5 inline-block h-5 w-5 rounded-full bg-[#D62E37]" />
-                <p className="text-left text-gray-700 text-base sm:text-lg">
-                  Passionate about web development and UI design.
-                </p>
-              </div>
-
-              <div className="flex items-start justify-center gap-3 lg:justify-start">
-                <span className="mt-1.5 inline-block h-5 w-5 rounded-full bg-[#D62E37]" />
-                <p className="text-left text-gray-700 text-base sm:text-lg">
-                  Experienced with Laravel, React, Tailwind, and MySQL.
-                </p>
-              </div>
-
-              <div className="flex items-start justify-center gap-3 lg:justify-start">
-                <span className="mt-1.5 inline-block h-5 w-5 rounded-full bg-[#D62E37]" />
-                <p className="text-left text-gray-700 text-base sm:text-lg">
-                  Strong teamwork, communication, and problem-solving skills.
-                </p>
-              </div>
-
-              <div className="flex items-start justify-center gap-3 lg:justify-start">
-                <span className="mt-1.5 inline-block h-5 w-5 rounded-full bg-[#D62E37]" />
-                <p className="text-left text-gray-700 text-base sm:text-lg">
-                  Always eager to learn and explore new technologies.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

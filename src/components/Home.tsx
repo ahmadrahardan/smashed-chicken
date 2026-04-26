@@ -11,15 +11,28 @@ const HomeSection = () => {
   const photoRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const rotateTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
+        titleRef.current,
+        { x: -80, opacity: 0, scale: 0.95 },
+        { x: 0, opacity: 1, scale: 1, duration: 1, ease: "power3.out" },
+      );
+
+      gsap.fromTo(
         textRef.current,
         { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          delay: 0.3,
+        },
       );
 
       gsap.fromTo(
@@ -50,38 +63,62 @@ const HomeSection = () => {
   }, []);
 
   useEffect(() => {
-    const text = "Crispy, Juicy, Boldly Delicious!";
-    let index = 0;
+    const toRotate = [
+      "Murah Meriah...",
+      "Pedasnya Nampol...",
+      "Bikin Nagih...",
+      "Porsi Mantap...",
+    ];
 
-    if (titleRef.current) {
-      titleRef.current.innerHTML = "";
-    }
+    const period = 2000;
+    let loopNum = 0;
+    let txt = "";
+    let isDeleting = false;
+    let timeout: ReturnType<typeof setTimeout>;
 
-    const typing = setInterval(() => {
-      if (!titleRef.current) return;
+    const tick = () => {
+      const fullTxt = toRotate[loopNum % toRotate.length];
 
-      const currentText = text.substring(0, index);
-      titleRef.current.innerHTML = currentText.replace(/\n/g, "<br />");
+      txt = isDeleting
+        ? fullTxt.substring(0, txt.length - 1)
+        : fullTxt.substring(0, txt.length + 1);
 
-      index++;
-
-      if (index > text.length) {
-        clearInterval(typing);
+      if (rotateTextRef.current) {
+        rotateTextRef.current.innerHTML = `
+          <span class="text-yellow-300 drop-shadow-lg">${txt}</span>
+          <span class="text-white/90">|</span>
+        `;
       }
-    }, 55);
 
-    return () => clearInterval(typing);
+      let delta = 120 - Math.random() * 60;
+
+      if (isDeleting) delta /= 2;
+
+      if (!isDeleting && txt === fullTxt) {
+        delta = period;
+        isDeleting = true;
+      } else if (isDeleting && txt === "") {
+        isDeleting = false;
+        loopNum++;
+        delta = 450;
+      }
+
+      timeout = setTimeout(tick, delta);
+    };
+
+    tick();
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen overflow-hidden bg-[#E51F1F] flex items-center"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#E51F1F]"
     >
-
       <div
-        className="absolute inset-0 bg-center bg-cover opacity-45"
+        className="absolute inset-0 bg-cover bg-center opacity-45"
         style={{
           backgroundImage: `url(${bgChicken})`,
         }}
@@ -97,24 +134,22 @@ const HomeSection = () => {
         }}
       />
 
-      {/* Cahaya putih memancar di belakang ayam */}
       <div className="absolute right-[13%] top-1/2 h-[580px] w-[580px] -translate-y-1/2 rounded-full bg-white/35 blur-3xl" />
       <div className="absolute right-[12%] top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-yellow-200/30 blur-2xl" />
 
       <div className="relative z-10 mx-auto w-full max-w-screen-xl px-6 lg:px-14">
         <div className="grid min-h-[calc(100vh-88px)] grid-cols-1 items-center gap-10 lg:grid-cols-12">
-          {/* LEFT - TEXT */}
           <div ref={textRef} className="text-center lg:col-span-6 lg:text-left">
             <h1
               ref={titleRef}
-              className="min-h-[150px] text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
-            />
+              className="text-4xl font-extrabold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+            >
+              Ayam Geprek Abang
+            </h1>
 
-            <p className="mt-6 max-w-lg text-sm leading-relaxed text-white/90 sm:text-base lg:mx-0">
-              Dive into the flavor-packed world of Zentucky Fried Chicken. Made
-              with the finest ingredients, our crispy delights will keep you
-              coming back for more. Order now and savor the goodness!
-            </p>
+            <div className="mt-3 h-[1.4em] text-2xl font-extrabold sm:text-3xl md:text-4xl">
+              <div ref={rotateTextRef} />
+            </div>
 
             <div className="mt-8">
               <button className="rounded-full bg-white px-7 py-3 font-semibold text-[#E51F1F] shadow-md transition hover:scale-105">
@@ -123,7 +158,6 @@ const HomeSection = () => {
             </div>
           </div>
 
-          {/* RIGHT - IMAGE */}
           <div
             ref={photoRef}
             className="relative flex justify-center lg:col-span-6 lg:justify-end"

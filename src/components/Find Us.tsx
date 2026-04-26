@@ -1,9 +1,9 @@
 import sepadu from "../assets/certificates/Sertifikat HKI Sepadu.webp";
 import simba from "../assets/certificates/Sertifikat HKI SIMBA.webp";
 import bgChicken from "../assets/fried-chicken.jpg";
-import gofood from "../assets/logo.png";
-import grabfood from "../assets/logo.png";
-import shopeefood from "../assets/logo.png";
+import gofood from "../assets/gofood.png";
+import grabfood from "../assets/grabfood.png";
+import shopeefood from "../assets/shopeefood.png";
 
 const FindUsSection = () => {
   return (
@@ -68,7 +68,7 @@ const FindUsSection = () => {
 
           {/* RIGHT - TEXT */}
           <div className="relative z-30 text-center text-white lg:text-left">
-            <h2 className="max-w-xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
+            <h2 className="max-w-xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               Temukan Kami di
             </h2>
 

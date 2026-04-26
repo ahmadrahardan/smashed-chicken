@@ -1,39 +1,53 @@
+import ornament from "../assets/ornament.png";
+import sosis from "../assets/sosis.png";
+import ayam from "../assets/ayam.png";
+import nugget from "../assets/nugget.png";
+
 type Item = {
-  desc1: string;
-  desc2: string;
+  type: string;
+  menu: string;
   price?: string;
   highlight?: boolean;
+  image: string;
+  imageBg?: "white" | "yellow";
 };
 
 const topCards: Item[] = [
   {
-    desc1: "NUGGET GEPREK",
-    desc2: "Bachelor of Information Systems",
+    type: "Penawaran Hari ini",
+    menu: "Sosis Geprek",
     price: "10.000",
+    image: sosis,
+    imageBg: "yellow",
   },
   {
-    desc1: "AYAM GEPREK ABANG",
-    desc2: "Information Systems Student Association (HIMASIF)",
+    type: "Penawaran Spesial",
+    menu: "Ayam Geprek Abang + nasi",
     price: "10.000",
     highlight: true,
+    image: ayam,
   },
   {
-    desc1: "SOSIS GEPREK",
-    desc2: "Ilkom Developer League (IDLe) 2025",
+    type: "Penawaran Hari ini",
+    menu: "Nugget Geprek",
     price: "10.000",
+    image: nugget,
+    imageBg: "yellow",
   },
 ];
 
 const bottomCards: Item[] = [
   {
-    desc1: "Paket Ayam Geprek + Es Teh",
-    desc2: "IT-CONVERT & PICTURE 2025",
+    type: "Paket Combo Hemat 1",
+    menu: "Ayam Geprek Abang + nasi + sambal bawang + es teh jumbo",
     price: "12.000",
+    image: ayam,
   },
   {
-    desc1: "Paket Ayam Geprek + Add On Sosis/Nugget",
-    desc2: "INHOFIS 2025 & Sarasehan 2025",
-    price: "13.000",
+    type: "Paket Combo Hemat 2",
+    menu: "Ayam Geprek Abang + nasi + sambal bawang + es teh jumbo + nugget/sosis geprek",
+    price: "20.000",
+    image: ayam,
   },
 ];
 
@@ -45,14 +59,13 @@ const SmallCard = ({ item }: { item: Item }) => {
       }`}
     >
       <div className="flex items-center justify-between gap-4 p-5">
-        <div className="max-w-[65%]">
-
+        <div className="max-w-[62%]">
           <h3
             className={`mt-1 text-xl font-extrabold leading-tight ${
               item.highlight ? "text-white" : "text-[#111]"
             }`}
           >
-            {item.desc1}
+            {item.type}
           </h3>
 
           <p
@@ -60,24 +73,26 @@ const SmallCard = ({ item }: { item: Item }) => {
               item.highlight ? "text-white/85" : "text-gray-500"
             }`}
           >
-            {item.desc2}
+            {item.menu}
           </p>
 
-          <div className="mt-4 inline-block rounded-full bg-[#B71C1C] px-4 py-1.5 text-sm font-bold text-white shadow">
-            {item.price}
+          <div className="mt-4 inline-block rounded-full bg-[#F7C62F] px-5 py-2 text-sm font-extrabold text-[#111] shadow">
+            Rp {item.price}
           </div>
         </div>
 
-        <div className="relative flex h-24 w-24 items-center justify-center">
-          <div className="absolute inset-0 rounded-full bg-[#F7C62F]" />
+        <div className="relative flex h-28 w-28 shrink-0 items-center justify-center">
           <div
-            className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full text-lg font-extrabold ${
-              item.highlight
-                ? "bg-[#C91515] text-[#FFD54A]"
-                : "bg-white text-[#FF2E2E]"
+            className={`absolute inset-0 rounded-full ${
+              item.imageBg === "yellow" ? "bg-[#F7C62F]" : "bg-white"
             }`}
-          >
-          </div>
+          />
+
+          <img
+            src={item.image}
+            alt={item.menu}
+            className="relative z-10 h-24 w-24 object-contain drop-shadow-lg"
+          />
         </div>
       </div>
     </div>
@@ -90,21 +105,25 @@ const LargeCard = ({ item }: { item: Item }) => {
       <div className="flex flex-col justify-between gap-6 p-6 md:flex-row md:items-center">
         <div className="max-w-[65%]">
           <h3 className="mt-1 text-2xl font-extrabold leading-tight text-[#111]">
-            {item.desc1}
+            {item.type}
           </h3>
 
-          <p className="mt-2 text-sm leading-6 text-gray-500">{item.desc2}</p>
+          <p className="mt-2 text-sm leading-6 text-gray-500">{item.menu}</p>
 
-          <div className="mt-4 inline-block -rotate-6 text-4xl font-extrabold text-[#D82020]">
-            {item.price}
+          <div className="mt-4 inline-block rounded-full bg-[#F7C62F] px-6 py-2 text-lg font-extrabold text-[#111] shadow">
+            Rp {item.price}
           </div>
         </div>
 
-        <div className="relative flex h-32 w-32 shrink-0 items-center justify-center md:h-40 md:w-40">
+        <div className="relative flex h-36 w-36 shrink-0 items-center justify-center md:h-44 md:w-44">
           <div className="absolute inset-0 rounded-full bg-[#F7C62F]" />
-          <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-[#FF2E2E] text-2xl font-extrabold text-white md:h-28 md:w-28">
-            ★
-          </div>
+          <div className="absolute inset-3 rounded-full bg-white" />
+
+          <img
+            src={item.image}
+            alt={item.menu}
+            className="relative z-10 h-32 w-32 object-contain drop-shadow-xl md:h-40 md:w-40"
+          />
         </div>
       </div>
     </div>
@@ -115,24 +134,24 @@ const MenuSection = () => {
   return (
     <section
       id="menu"
-      className="relative min-h-screen overflow-hidden bg-[#FBF1EB] py-20 flex items-center"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[#FBF1EB] py-20"
     >
       {/* background ornaments */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute right-[-80px] top-10 h-[280px] w-[280px] rounded-full border-[16px] border-[#EEDDD5] opacity-70" />
-        <div className="absolute right-[-30px] top-24 h-[180px] w-[180px] rounded-full border-[12px] border-[#F3E3DB] opacity-80" />
-        <div className="absolute left-10 bottom-10 h-20 w-20 rounded-full bg-[#F8E0D5] blur-2xl opacity-70" />
+        <img
+          src={ornament}
+          alt=""
+          className="absolute right-[-80px] top-24 h-[500px] w-[500px] scale-x-[-1] object-contain opacity-70"
+        />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-screen-xl px-5 md:px-10">
-        {/* top cards */}
+      <div className="relative z-10 mx-auto w-full max-w-screen-xl px-5 md:px-10">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {topCards.map((item, i) => (
             <SmallCard key={i} item={item} />
           ))}
         </div>
 
-        {/* bottom cards */}
         <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
           {bottomCards.map((item, i) => (
             <LargeCard key={i} item={item} />

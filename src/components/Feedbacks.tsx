@@ -1,3 +1,4 @@
+import ornament from "../assets/ornament.png";
 import { useEffect, useState } from "react";
 
 const testimonials = [
@@ -146,12 +147,19 @@ const FeedbacksSection: React.FC = () => {
       id="feedbacks"
       className="relative flex min-h-screen items-center overflow-hidden bg-[#FBF1EB] py-20"
     >
-      {/* background ornaments tetap */}
+      {/* background ornaments */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <img
+          src={ornament}
+          alt=""
+          className="absolute left-[-80px] top-24 h-[500px] w-[500px] object-contain opacity-70"
+        />
+      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-screen-xl px-5 md:px-10">
         {/* heading tetap */}
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-black sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
             Ulasan dari Pelanggan Kami
           </h2>
 
