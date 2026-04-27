@@ -1,7 +1,12 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ornament from "../assets/ornament.png";
 import sosis from "../assets/sosis.png";
 import ayam from "../assets/ayam.png";
 import nugget from "../assets/nugget.png";
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 type Item = {
   type: string;
@@ -54,14 +59,14 @@ const bottomCards: Item[] = [
 const SmallCard = ({ item }: { item: Item }) => {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl shadow-md transition hover:-translate-y-1 hover:shadow-lg ${
+      className={`card-small relative overflow-hidden rounded-2xl shadow-md transition hover:-translate-y-1 hover:shadow-lg ${
         item.highlight ? "bg-[#FF2E2E] text-white" : "bg-white text-black"
       }`}
     >
       <div className="flex items-center justify-between gap-4 p-5">
         <div className="max-w-[62%]">
           <h3
-            className={`mt-1 text-xl font-extrabold leading-tight ${
+            className={`mt-1 text-xl font-extrabold ${
               item.highlight ? "text-white" : "text-[#111]"
             }`}
           >
@@ -69,7 +74,7 @@ const SmallCard = ({ item }: { item: Item }) => {
           </h3>
 
           <p
-            className={`mt-1 text-sm leading-5 ${
+            className={`mt-1 text-sm ${
               item.highlight ? "text-white/85" : "text-gray-500"
             }`}
           >
@@ -81,7 +86,7 @@ const SmallCard = ({ item }: { item: Item }) => {
           </div>
         </div>
 
-        <div className="relative flex h-28 w-28 shrink-0 items-center justify-center">
+        <div className="relative flex h-28 w-28 items-center justify-center">
           <div
             className={`absolute inset-0 rounded-full ${
               item.imageBg === "yellow" ? "bg-[#F7C62F]" : "bg-white"
@@ -101,23 +106,19 @@ const SmallCard = ({ item }: { item: Item }) => {
 
 const LargeCard = ({ item }: { item: Item }) => {
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+    <div className="card-large relative overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-lg">
       <div className="flex items-center justify-between gap-4 p-5 sm:p-6">
         <div className="max-w-[60%] sm:max-w-[65%]">
-          <h3 className="mt-1 text-xl font-extrabold leading-tight text-[#111] sm:text-2xl">
-            {item.type}
-          </h3>
+          <h3 className="text-xl font-extrabold sm:text-2xl">{item.type}</h3>
 
-          <p className="mt-2 text-xs leading-5 text-gray-500 sm:text-sm sm:leading-6">
-            {item.menu}
-          </p>
+          <p className="mt-2 text-xs text-gray-500 sm:text-sm">{item.menu}</p>
 
           <div className="mt-4 inline-block rounded-full bg-[#F7C62F] px-4 py-1.5 text-sm font-extrabold text-[#111] shadow sm:px-6 sm:py-2 sm:text-lg">
             Rp {item.price}
           </div>
         </div>
 
-        <div className="relative flex h-28 w-28 shrink-0 items-center justify-center sm:h-36 sm:w-36 md:h-44 md:w-44">
+        <div className="relative flex h-28 w-28 items-center justify-center sm:h-36 sm:w-36 md:h-44 md:w-44">
           <div className="absolute inset-0 rounded-full bg-[#F7C62F]" />
           <div className="absolute inset-2 rounded-full bg-white sm:inset-3" />
 
@@ -133,12 +134,62 @@ const LargeCard = ({ item }: { item: Item }) => {
 };
 
 const MenuSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+  if (!sectionRef.current) return;
+
+  const ctx = gsap.context(() => {
+    const smallCards = sectionRef.current!.querySelectorAll(".card-small");
+    const largeCards = sectionRef.current!.querySelectorAll(".card-large");
+
+    gsap.fromTo(
+      smallCards,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      },
+    );
+
+    gsap.fromTo(
+      largeCards,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        stagger: 0.25,
+        ease: "power3.out",
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      },
+    );
+
+    ScrollTrigger.refresh();
+  }, sectionRef);
+
+  return () => ctx.revert();
+}, []);
+
   return (
     <section
+      ref={sectionRef}
       id="menu"
       className="relative flex min-h-screen items-center overflow-hidden bg-[#FBF1EB] py-20"
     >
-      {/* background ornaments */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <img
           src={ornament}

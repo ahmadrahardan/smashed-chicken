@@ -1,5 +1,9 @@
 import ornament from "../assets/ornament.png";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
@@ -57,7 +61,7 @@ const testimonials = [
     rating: 5.0,
     text: "Ayam geprek di sini benar-benar juara! Crispy di luar, juicy di dalam, dan sambalnya pedasnya nendang banget. Setiap gigitan terasa nikmat dan bikin pengen nambah lagi. Cocok banget buat kamu yang cari makanan simpel tapi penuh rasa!",
     name: "Lidya Permatasari",
-    role: "Warga ",
+    role: "Warga",
     avatar: "https://i.pravatar.cc/100?img=32",
     image:
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=400&auto=format&fit=crop",
@@ -129,6 +133,11 @@ const TestimonialCard = ({
 const FeedbacksSection: React.FC = () => {
   const [current, setCurrent] = useState(0);
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const dotsRef = useRef<HTMLDivElement>(null);
+
   const slides = [];
   for (let i = 0; i < testimonials.length; i += 2) {
     slides.push(testimonials.slice(i, i + 2));
@@ -142,12 +151,71 @@ const FeedbacksSection: React.FC = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headingRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            once: true,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        sliderRef.current,
+        { y: 50, opacity: 0, scale: 0.96 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.9,
+          ease: "power3.out",
+          delay: 0.15,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 70%",
+            once: true,
+          },
+        },
+      );
+
+      gsap.fromTo(
+        dotsRef.current,
+        { y: 20, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power3.out",
+          delay: 0.4,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 70%",
+            once: true,
+          },
+        },
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="feedbacks"
       className="relative flex min-h-screen items-center overflow-hidden bg-[#FBF1EB] py-20"
     >
-      {/* background ornaments */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <img
           src={ornament}
@@ -157,8 +225,7 @@ const FeedbacksSection: React.FC = () => {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-screen-xl px-5 md:px-10">
-        {/* heading tetap */}
-        <div className="mx-auto mb-12 max-w-3xl text-center">
+        <div ref={headingRef} className="mx-auto mb-12 max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl md:text-5xl">
             Ulasan dari Pelanggan Kami
           </h2>
@@ -168,8 +235,7 @@ const FeedbacksSection: React.FC = () => {
           </p>
         </div>
 
-        {/* slider */}
-        <div className="relative mx-auto overflow-hidden">
+        <div ref={sliderRef} className="relative mx-auto overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-in-out"
             style={{
@@ -197,8 +263,10 @@ const FeedbacksSection: React.FC = () => {
           </div>
         </div>
 
-        {/* dots */}
-        <div className="mt-8 flex items-center justify-center gap-2">
+        <div
+          ref={dotsRef}
+          className="mt-8 flex items-center justify-center gap-2"
+        >
           {slides.map((_, i) => (
             <button
               key={i}

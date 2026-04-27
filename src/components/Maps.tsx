@@ -13,17 +13,24 @@ const MapsSection: React.FC = () => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out" },
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          once: true,
+        },
+      });
 
       tl.fromTo(
         contentRef.current,
-        { x: -40, opacity: 0 },
+        { x: -50, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.9 },
       ).fromTo(
         mapRef.current,
-        { x: 40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.9 },
-        "-=0.6",
+        { x: 50, opacity: 0, scale: 0.96 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.9 },
+        "-=0.5",
       );
     }, sectionRef);
 
