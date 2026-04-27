@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import bgChicken from "../assets/fried-chicken.jpg";
+import bgChicken from "../assets/fried-chicken.webp";
 import gofood from "../assets/gofood.png";
 import grabfood from "../assets/grabfood.png";
 import shopeefood from "../assets/shopeefood.png";
-import phone from "../assets/iphone.png";
+import phone from "../assets/iphone.webp";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 

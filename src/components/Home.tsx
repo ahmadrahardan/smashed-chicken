@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Ayam from "../assets/ayam.png";
-import bgChicken from "../assets/fried-chicken.jpg";
-import panah from "../assets/panah.png";
+import Ayam from "../assets/ayam.webp";
+import bgChicken from "../assets/fried-chicken.webp";
+import panah from "../assets/panah.webp";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 

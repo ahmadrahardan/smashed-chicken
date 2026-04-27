@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logoText from "../assets/logo-text.png";
+import logoText from "../assets/logo-text.webp";
 
 const NAV_ITEMS = [
   { id: "home", label: "Home" },

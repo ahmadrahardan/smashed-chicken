@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ornament from "../assets/ornament.png";
-import sosis from "../assets/sosis.png";
-import ayam from "../assets/ayam.png";
-import nugget from "../assets/nugget.png";
+import sosis from "../assets/sosis.webp";
+import ayam from "../assets/ayam.webp";
+import nugget from "../assets/nugget.webp";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
 

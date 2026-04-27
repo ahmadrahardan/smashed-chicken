@@ -1,5 +1,5 @@
-import bgChicken from "../assets/fried-chicken.jpg";
-import logoText from "../assets/logo-text.png";
+import bgChicken from "../assets/fried-chicken.webp";
+import logoText from "../assets/logo-text.webp";
 
 const Footer: React.FC = () => {
   return (

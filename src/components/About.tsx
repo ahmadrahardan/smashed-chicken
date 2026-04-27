@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo.webp";
 import dot from "../assets/dot.png";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
