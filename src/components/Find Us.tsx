@@ -8,7 +8,7 @@ const FindUsSection = () => {
   return (
     <section
       id="findus"
-      className="relative flex min-h-[50vh] items-center overflow-hidden bg-[#FBF1EB] py-20"
+      className="relative flex min-h-[35vh] items-center overflow-hidden bg-[#FBF1EB] py-8 md:min-h-[50vh] md:py-20"
     >
       {/* KOTAK MERAH DI TENGAH */}
       <div className="relative mx-auto h-[270px] w-full md:h-[300px] lg:h-[320px]">
@@ -34,13 +34,13 @@ const FindUsSection = () => {
           </div>
 
           {/* MOBILE PHONE MOCKUP */}
-          <div className="relative flex h-full items-center justify-center lg:hidden">
+          {/* <div className="relative flex h-full items-center justify-center lg:hidden">
             <img
               src={phone}
               alt="Instagram Mockup"
               className="absolute top-1/2 h-[430px] w-auto -translate-y-1/2 object-contain"
             />
-          </div>
+          </div> */}
 
           {/* RIGHT - TEXT */}
           <div className="relative z-30 text-center text-white lg:text-left">

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import fotoFormalku from "../assets/logo.png";
+import Logo from "../assets/logo.png";
 import dot from "../assets/dot.png";
 
 if (typeof window !== "undefined") gsap.registerPlugin(ScrollTrigger);
@@ -52,12 +52,13 @@ const AboutSection = () => {
       <img
         src={dot}
         alt=""
-        className="absolute left-1 top-6 h-64 w-64 object-contain opacity-80"
+        className="absolute left-[-50px] top-[-10px] h-56 w-56 object-contain opacity-70 sm:left-[-40px] sm:top-0 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:left-1 lg:top-6 lg:h-96 lg:w-96 lg:opacity-80"
       />
+
       <img
         src={dot}
         alt=""
-        className="absolute right-1 bottom-6 h-64 w-64 object-contain opacity-80"
+        className="absolute right-[-50px] bottom-[-20px] h-56 w-56 object-contain opacity-70 sm:right-[-40px] sm:bottom-0 sm:h-64 sm:w-64 md:h-80 md:w-80 lg:right-1 lg:bottom-6 lg:h-96 lg:w-96 lg:opacity-80"
       />
 
       <div className="relative z-10 mx-auto max-w-screen-xl px-6 sm:px-8 lg:px-12">
@@ -73,7 +74,7 @@ const AboutSection = () => {
               {/* logo */}
               <div className="absolute inset-[14px] overflow-hidden rounded-full bg-white">
                 <img
-                  src={fotoFormalku}
+                  src={Logo}
                   alt="About Me"
                   className="h-full w-full rounded-full object-cover"
                 />

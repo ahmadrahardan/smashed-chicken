@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import profilePhoto from "../assets/ayam.png";
+import Ayam from "../assets/ayam.png";
 import bgChicken from "../assets/fried-chicken.jpg";
 import panah from "../assets/panah.png";
 
@@ -138,8 +138,8 @@ const HomeSection = () => {
       <div className="absolute right-[13%] top-1/2 h-[580px] w-[580px] -translate-y-1/2 rounded-full bg-white/35 blur-3xl" />
       <div className="absolute right-[12%] top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-yellow-200/30 blur-2xl" />
 
-      <div className="relative z-10 mx-auto w-full max-w-screen-xl px-6 lg:px-14">
-        <div className="grid min-h-[calc(100vh-88px)] grid-cols-1 items-center gap-10 lg:grid-cols-12">
+      <div className="relative z-10 mx-auto w-full max-w-screen-xl px-6 pt-24 sm:pt-28 lg:px-14 lg:pt-0">
+        <div className="grid min-h-[calc(100vh-88px)] grid-cols-1 items-center gap-0 lg:grid-cols-12 lg:gap-10">
           <div ref={textRef} className="text-center lg:col-span-6 lg:text-left">
             <h1
               ref={titleRef}
@@ -161,12 +161,12 @@ const HomeSection = () => {
 
           <div
             ref={photoRef}
-            className="relative flex justify-center lg:col-span-6 lg:justify-end"
+            className="relative -mt-24 flex justify-center lg:col-span-6 lg:mt-0 lg:justify-end"
           >
             <img
-              src={profilePhoto}
+              src={Ayam}
               alt="Product"
-              className="w-[520px] scale-x-[-1] object-contain drop-shadow-2xl sm:w-[700px] md:w-[880px] lg:w-[1050px]"
+              className="w-[380px] scale-x-[-1] object-contain drop-shadow-2xl sm:w-[620px] md:w-[820px] lg:w-[1050px]"
             />
 
             <div className="absolute right-2 top-4 flex h-20 w-20 flex-col items-center justify-center rounded-full bg-white font-bold text-[#E51F1F] shadow-lg sm:h-24 sm:w-24">

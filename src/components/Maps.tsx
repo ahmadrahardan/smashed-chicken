@@ -40,7 +40,7 @@ const MapsSection: React.FC = () => {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* LEFT CONTENT */}
           <div ref={contentRef} className="text-center lg:text-left">
-            <h2 className="text-4xl font-bold leading-tight text-[#111] sm:text-5xl">
+            <h2 className="text-3xl font-bold leading-tight text-[#111] sm:text-4xl md:text-5xl">
               Kunjungi Tempat Kami!
             </h2>
 

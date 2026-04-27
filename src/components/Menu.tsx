@@ -102,27 +102,29 @@ const SmallCard = ({ item }: { item: Item }) => {
 const LargeCard = ({ item }: { item: Item }) => {
   return (
     <div className="relative overflow-hidden rounded-2xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="flex flex-col justify-between gap-6 p-6 md:flex-row md:items-center">
-        <div className="max-w-[65%]">
-          <h3 className="mt-1 text-2xl font-extrabold leading-tight text-[#111]">
+      <div className="flex items-center justify-between gap-4 p-5 sm:p-6">
+        <div className="max-w-[60%] sm:max-w-[65%]">
+          <h3 className="mt-1 text-xl font-extrabold leading-tight text-[#111] sm:text-2xl">
             {item.type}
           </h3>
 
-          <p className="mt-2 text-sm leading-6 text-gray-500">{item.menu}</p>
+          <p className="mt-2 text-xs leading-5 text-gray-500 sm:text-sm sm:leading-6">
+            {item.menu}
+          </p>
 
-          <div className="mt-4 inline-block rounded-full bg-[#F7C62F] px-6 py-2 text-lg font-extrabold text-[#111] shadow">
+          <div className="mt-4 inline-block rounded-full bg-[#F7C62F] px-4 py-1.5 text-sm font-extrabold text-[#111] shadow sm:px-6 sm:py-2 sm:text-lg">
             Rp {item.price}
           </div>
         </div>
 
-        <div className="relative flex h-36 w-36 shrink-0 items-center justify-center md:h-44 md:w-44">
+        <div className="relative flex h-28 w-28 shrink-0 items-center justify-center sm:h-36 sm:w-36 md:h-44 md:w-44">
           <div className="absolute inset-0 rounded-full bg-[#F7C62F]" />
-          <div className="absolute inset-3 rounded-full bg-white" />
+          <div className="absolute inset-2 rounded-full bg-white sm:inset-3" />
 
           <img
             src={item.image}
             alt={item.menu}
-            className="relative z-10 h-32 w-32 object-contain drop-shadow-xl md:h-40 md:w-40"
+            className="relative z-10 h-24 w-24 object-contain drop-shadow-xl sm:h-32 sm:w-32 md:h-40 md:w-40"
           />
         </div>
       </div>
